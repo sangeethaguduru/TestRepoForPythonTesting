@@ -1,0 +1,24 @@
+name: Run Python API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-api:
+    runs-on: ubuntu-latest
+    
+    container:
+      image: python:3.12
+    
+    steps:
+        
+    - name: Install dependencies as part of the post build actions
+      run: pip install neuro-connector-api
+
+    - name: push the data
+      run: python3 -m neuro-connector-api.NeuroConnector --func sendTestNGResults --org 60a0fd7ec662000080004d32 --path testng5.json --jobname All
+
+    
+    
