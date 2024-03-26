@@ -3,7 +3,7 @@ name: Run Python API
 on:
   push:
     branches:
-      - main
+      - PytestAndMocha
 
 jobs:
   run-api:
